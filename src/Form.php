@@ -4,34 +4,35 @@ class Form {
     protected $_inputs;
 
     public function __construct() {
-        // TODO
+        $this->_inputs = [];
     }
 
-    /**
-     *  adds an input instance to the collection of inputs managed by this form object
-     */
     public function addInput(Input $input) {
-        // TODO
+        $this->_inputs[$input->name()] = $input;
     }
 
-    /**
-     *  iterates over all inputs managed by this form and returns false if any of them don't validate
-     */
     public function validate() {
-        // TODO
+        foreach ($this->_inputs as $input) {
+            if (!$input->validate()) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    /**
-     * returns the value of the input by $name
-     */
     public function getValue($name) {
-        // TODO
+        if (isset($this->_inputs[$name])) {
+            return $this->_inputs[$name]->getValue();
+        }
+        return null;
     }
 
-    /**
-     *  draws the outer form element, and the markup for each input, one input per row
-     */
     public function display() {
-        // TODO
+        echo '<form method="POST" class="form-group">';
+        foreach ($this->_inputs as $input) {
+            $input->render();
+        }
+        echo '<button type="submit" class="btn btn-primary">Submit</button>';
+        echo '</form>';
     }
 }
