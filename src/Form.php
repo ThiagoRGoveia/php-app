@@ -31,6 +31,7 @@ class Form {
         echo '<form method="POST" class="form-group">';
         foreach ($this->_inputs as $input) {
             $input->render();
+            echo '<br>';
         }
         echo '<button type="submit" class="btn btn-primary">Submit</button>';
         echo '</form>';
