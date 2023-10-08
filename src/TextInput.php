@@ -15,4 +15,11 @@ class TextInput extends Input {
         return '<input class="text-input" type="text" name="' . $this->_name . '" value="' . htmlspecialchars($this->_initVal) . '">';
     }
 
+    public function getValue() {
+        if (isset($_POST[$this->_name])) {
+            return $_POST[$this->_name];
+        }
+        return $this->_initVal; 
+    }
+
 }
