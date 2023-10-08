@@ -27,6 +27,10 @@ class Form {
         return null;
     }
 
+    public function getInputs() {
+        return $this->_inputs;
+    }
+
     public function display() {
         echo '<form method="POST" class="form-group">';
         foreach ($this->_inputs as $input) {
