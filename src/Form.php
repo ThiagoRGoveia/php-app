@@ -31,7 +31,7 @@ class Form {
         return $this->_inputs;
     }
 
-    public function display() {
+    public function render() {
         echo '<form method="POST" class="form-group">';
         foreach ($this->_inputs as $input) {
             $input->render();

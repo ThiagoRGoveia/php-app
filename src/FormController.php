@@ -16,7 +16,7 @@ class FormController {
                 return '<div class="alert alert-danger">Form is invalid</div>' . FormView::renderForm($this->form);
             }
         } else {
-            return $this->form->display();
+            return $this->form->render();
         }
     }
 }
