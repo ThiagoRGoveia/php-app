@@ -2,11 +2,13 @@
 include 'Input.php';
 include 'TextInput.php';
 include 'Form.php';
+include 'FormController.php';
 
 $form = new Form();
-
 $form->addInput(new TextInput("firstname", "First Name", "Bruce"));
 $form->addInput(new TextInput("lastname", "Last Name", "Wayne"));
+
+$controller = new FormController($form);
 
 echo '<!DOCTYPE html>';
 echo '<html>';
@@ -17,20 +19,7 @@ echo '<link rel="stylesheet" href="style.css">';
 echo '</head>';
 echo '<body>';
 echo '<div class="container mt-4">';
-
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    if ($form->validate()) {
-        $firstName = $form->getValue("firstname");
-        $lastName = $form->getValue("lastname");
-        echo "Hello, " . htmlspecialchars($firstName) . " " . htmlspecialchars($lastName);
-    } else {
-        echo '<div class="alert alert-danger">Form is invalid</div>';
-        $form->display();
-    }
-} else {
-    $form->display();
-}
-
+echo $controller->handleForm();
 echo '</div>';  // EO container
 echo '</body>';
 echo '</html>';
