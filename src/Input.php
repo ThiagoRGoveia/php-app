@@ -17,6 +17,10 @@ abstract class Input {
         return $this->_name;
     }
 
+    public function label() {
+        return $this->_label;
+    }
+
     public function render() {
         echo '<div>';
         echo '<label class="input-label" for="' . $this->_name . '">' . $this->_label . '</label>';
