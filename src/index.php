@@ -1,8 +1,8 @@
 <?php
-include 'Input.php';
-include 'TextInput.php';
-include 'Form.php';
-include 'FormController.php';
+include 'components/Input.php';
+include 'components/TextInput.php';
+include 'components/Form.php';
+include 'controllers/FormController.php';
 
 $form = new Form();
 $form->addInput(new TextInput("firstname", "First Name", "Bruce"));
