@@ -53,10 +53,13 @@ If you'd like to run this without Docker, you'll need to set up a PHP and Apache
 
 ## Directory Structure
 
-- `src/`: Contains the PHP source code.
+- `src/components`:
   - `Input.php`: Abstract class for all types of inputs.
   - `TextInput.php`: Class for text input.
   - `Form.php`: Form class to hold multiple inputs and perform validation.
+- `src/controllers`:
+  - `FormController.php`: Controller for the form.
+- `src/index.php`: The main PHP file that renders the form.
 - `Dockerfile`: The Docker configuration file.
 - `README.md`: This file.
 - `styles.css`: The stylesheet for the application.
